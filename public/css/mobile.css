@@ -1,0 +1,288 @@
+/* ==========================================================================
+   📱 MOBILE FIRST LAYOUT & HAMBURGER MENU (< 768px)
+   ========================================================================== */
+
+/* Main Header */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(7, 3, 17, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-glass);
+  padding: 10px 14px;
+  padding-top: max(10px, env(safe-area-inset-top));
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo-img {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.brand-sub {
+  font-size: 0.6rem;
+  color: var(--accent-gold);
+  letter-spacing: 0.12em;
+  display: block;
+}
+
+/* Hamburger Button for Mobile */
+.hamburger-btn {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 38px;
+  height: 34px;
+  padding: 7px 8px;
+  background: rgba(157, 78, 221, 0.15);
+  border: 1px solid var(--purple-neon);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  z-index: 1005;
+  transition: var(--transition);
+}
+
+.hamburger-btn:hover, .hamburger-btn:focus {
+  background: rgba(157, 78, 221, 0.3);
+  box-shadow: 0 0 12px rgba(157, 78, 221, 0.4);
+}
+
+.hamburger-bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--purple-neon-bright);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 0 4px var(--purple-neon);
+}
+
+.hamburger-btn.active .bar-1 {
+  transform: translateY(8px) rotate(45deg);
+  background-color: var(--accent-gold);
+}
+
+.hamburger-btn.active .bar-2 {
+  opacity: 0;
+}
+
+.hamburger-btn.active .bar-3 {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: var(--accent-gold);
+}
+
+/* Sliding Mobile Navigation Drawer */
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 85%;
+  max-width: 320px;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(10, 5, 24, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-left: 1px solid var(--purple-neon);
+  box-shadow: -10px 0 35px rgba(0, 0, 0, 0.85);
+  z-index: 1004;
+  display: flex;
+  flex-direction: column;
+  padding: 70px 18px calc(24px + env(safe-area-inset-bottom)) 18px;
+  transition: right 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-nav-drawer.active {
+  right: 0;
+}
+
+.mobile-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: rgba(157, 78, 221, 0.1);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+}
+
+.mobile-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple-neon) 0%, var(--purple-deep) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.mobile-nav-link:hover, .mobile-nav-link.active {
+  background: rgba(157, 78, 221, 0.2);
+  color: var(--purple-neon-bright);
+  border-left: 3px solid var(--purple-neon-bright);
+  box-shadow: 0 0 15px rgba(157, 78, 221, 0.2);
+}
+
+.mobile-nav-link i {
+  font-size: 1.1rem;
+  width: 24px;
+  text-align: center;
+}
+
+.mobile-drawer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1003;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile Quick Bottom Navigation Bar */
+.mobile-bottom-bar {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(7, 3, 17, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border-glass);
+  z-index: 999;
+  padding: 6px 8px calc(6px + env(safe-area-inset-bottom)) 8px;
+  justify-content: space-around;
+}
+
+.bottom-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.bottom-tab i {
+  font-size: 1.15rem;
+}
+
+.bottom-tab.active {
+  color: var(--purple-neon-bright);
+  transform: translateY(-2px);
+}
+
+/* Main Container Padding for Mobile */
+.main-content {
+  padding: 16px 14px calc(85px + env(safe-area-inset-bottom)) 14px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+/* Kanban Board Touch Container for Mobile */
+.kanban-board {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
+  padding-bottom: 16px;
+  scroll-snap-type: x mandatory;
+}
+
+.kanban-column {
+  min-width: 270px;
+  max-width: 285px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+

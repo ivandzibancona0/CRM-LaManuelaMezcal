@@ -1,0 +1,157 @@
+/* ==========================================================================
+   💻 DESKTOP TAB NAVIGATION & LAYOUT (>= 768px)
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  /* Hide Mobile Specific Elements */
+  .hamburger-btn {
+    display: none !important;
+  }
+  
+  .mobile-nav-drawer, .mobile-drawer-backdrop, .mobile-bottom-bar {
+    display: none !important;
+  }
+
+  .main-content {
+    padding: 24px 24px 40px 24px;
+  }
+
+  /* Desktop Header Layout */
+  .header-inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    row-gap: 12px;
+    column-gap: 16px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .brand-logo-wrap {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .brand-logo-img {
+    height: 42px;
+  }
+
+  .brand-title {
+    font-size: 1.15rem;
+  }
+
+  /* Desktop User Menu Header Area (Top Right, aligned with Title) */
+  .desktop-user-wrap {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .user-info-text {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    text-align: right;
+  }
+
+  .user-name-display {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #fff;
+  }
+
+  /* Desktop Tab Navigation Bar (Row Below) */
+  .desktop-nav-tabs {
+    display: flex !important;
+    align-items: center;
+    gap: 4px;
+    background: rgba(12, 5, 26, 0.85);
+    padding: 4px 8px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-glass);
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .tab-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    transition: var(--transition);
+  }
+
+  .tab-link i {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    transition: var(--transition);
+  }
+
+  .tab-link:hover {
+    color: #fff;
+    background: rgba(157, 78, 221, 0.18);
+  }
+
+  .tab-link:hover i {
+    color: var(--purple-neon-bright);
+  }
+
+  .tab-link.active {
+    background: linear-gradient(135deg, var(--purple-neon) 0%, var(--purple-deep) 100%);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
+  }
+
+  .tab-link.active i {
+    color: var(--accent-gold);
+  }
+
+  /* Fluid Responsive Grid Layouts for Desktop Views */
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 18px;
+  }
+
+  .kanban-board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    overflow-x: visible;
+  }
+
+  .kanban-column {
+    min-width: 0;
+    max-width: none;
+  }
+}

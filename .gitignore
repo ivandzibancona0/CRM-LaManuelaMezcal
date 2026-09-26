@@ -1,0 +1,57 @@
+# ==========================================
+# CRM La Manuela Mezcal - .gitignore
+# ==========================================
+
+# Dependencias de Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Variables de entorno y credenciales (mantener .env.example en control de versiones)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Bases de datos locales (SQLite) y temporales
+*.sqlite
+*.sqlite3
+*.db
+*.sqlite-journal
+*.sqlite3-journal
+database/*.sqlite
+database/*.sqlite3
+database/*.db
+
+# Logs y registros de ejecución / PM2
+logs/
+*.log
+pm2.log
+pids/
+*.pid
+*.seed
+
+# Respaldos y volcados de datos
+backups/
+*.sql.bak
+*.sql.gz
+*.dump
+
+# Archivos temporales y del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configuraciones de editores e IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
